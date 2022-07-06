@@ -57,6 +57,33 @@ const Section = ({ children, title }): Node => {
   );
 };
 
+// Register background handler
+// Get the notification
+messaging().setBackgroundMessageHandler(async remoteMessage => {
+  // Extract the body
+  let message_body = remoteMessage.notification.body;
+  // Extract the title
+  let message_title = remoteMessage.notification.title;
+  // Extract the notification image 
+  let avatar = remoteMessage.notification.android.imageUrl;
+
+  // Add the notification to the messages array
+  setMessages(messages => GiftedChat.append(messages, {
+    _id: Math.round(Math.random() * 1000000),
+    text: message_body,
+    createdAt: new Date(),
+    user: {
+      _id: 2,
+      name: "PartyB",
+      avatar: avatar,
+    },
+  }));
+
+  // Send a notification alert
+  Alert.alert(message_title, message_body);
+});
+
+
 const App: () => Node = () => {
   const [messages, setMessages] = useState([]);
   const isDarkMode = useColorScheme() === 'dark';
