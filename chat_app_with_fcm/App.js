@@ -74,7 +74,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
     createdAt: new Date(),
     user: {
       _id: 2,
-      name: "PartyB",
+      name: "Piet Hein 3.0",
       avatar: avatar,
     },
   }));
@@ -112,7 +112,7 @@ const App: () => Node = () => {
         createdAt: new Date(),
         user: {
           _id: 2,
-          name: "PartyB",
+          name: "Jamed Bond 007",
           avatar: avatar,
         },
       }));
